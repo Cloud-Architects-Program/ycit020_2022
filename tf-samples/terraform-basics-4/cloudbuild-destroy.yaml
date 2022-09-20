@@ -1,0 +1,38 @@
+steps:
+- id: 'tf init'
+  name: 'hashicorp/terraform:1.0.3'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      echo "Branch '$BRANCH_NAME'"
+      terraform init
+#     terraform workspace select prod || terraform workspace new prod
+
+#     filename =$(echo  "_"$BRANCH_NAME".tfvars")
+#     if [ -f "$filename" ]; then
+
+#      else  
+#        echo "***************************** SKIPPING APPLYING *******************************"
+#        echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
+#        echo "*******************************************************************************"
+#      fi 
+# [START tf-plan]
+
+- id: 'tf destroy'
+  name: 'hashicorp/terraform:1.0.3'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - | 
+      terraform workspace select $BRANCH_NAME || terraform workspace new $BRANCH_NAME
+      terraform destroy -var-file="$BRANCH_NAME.tfvars" -auto-approve -lock=false
+#      filename =$(echo  "_"$BRANCH_NAME".tfvars")
+#      if [ -f "$filename" ]; then
+
+#      else
+#        echo "***************************** SKIPPING APPLYING *******************************"
+#        echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
+#        echo "*******************************************************************************"
+#      fi
+# [END tf-apply]      
