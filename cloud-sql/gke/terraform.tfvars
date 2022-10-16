@@ -10,4 +10,3 @@ gcp_region             = "us-central1"           # GCP Region
 network_auto_cidr      = "10.131.0.0/24"         # GKE Node Range IP Address 
 pods_auto_cidr         = "10.1.0.0/16"           # GKE Pod Range IP Address
 services_auto_cidr     = "10.100.2.0/23"         # GKE Service Range IP Address
-
