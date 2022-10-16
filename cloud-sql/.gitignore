@@ -1,3 +1,4 @@
 .terraform*
-terraform.tfsate*
+terraform.tfsate
+terraform.tfstate.backupß
 README
