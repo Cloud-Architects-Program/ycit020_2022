@@ -1,4 +1,4 @@
-.terraform*
-terraform.tfsate
-terraform.tfstate.backupß
+**/.terraform/*
+*.tfstate
+*.tfstate.*
 README
