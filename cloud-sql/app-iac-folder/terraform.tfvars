@@ -1,1 +1,1 @@
-project_id = "course-valavan"
+project_id = "<PROJECT_ID>"
